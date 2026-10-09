@@ -8,6 +8,7 @@ const requestLogger = require('./middlewares/requestLogger');
 const { globalLimiter } = require('./middlewares/rateLimiter');
 const { errorHandler, notFoundHandler } = require('./middlewares/errorHandler');
 const authRoutes = require('./modules/auth/auth.routes');
+const testRoutes = require("./routes/test-api-routes")
 
 const app = express();
 
@@ -53,6 +54,16 @@ app.get('/health', (req, res) => {
 
 // ── API routes ────────────────────────────────────────────────────────────────
 app.use('/api/v1/auth', authRoutes);
+
+// test endpoint
+
+app.use("/test", testRoutes)
+
+// global route 
+
+app.get("/", (req, res) => {
+    return res.send("Hello from global route!")
+})
 
 // ── 404 + Error handlers ──────────────────────────────────────────────────────
 app.use(notFoundHandler);

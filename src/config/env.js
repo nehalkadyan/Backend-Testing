@@ -5,7 +5,7 @@ require('dotenv').config();
 const env = {
     // ── Server ───────────────────────────────────────────────────────────────
     NODE_ENV: process.env.NODE_ENV || 'development',
-    PORT: parseInt(process.env.PORT, 10) || 5000,
+    PORT: parseInt(process.env.PORT, 10) || 5001,
 
     // ── Database ─────────────────────────────────────────────────────────────
     MONGO_URI: process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/enterprise_auth',
@@ -27,7 +27,7 @@ const env = {
 
     // ── App URLs ──────────────────────────────────────────────────────────────
     CLIENT_URL: process.env.CLIENT_URL || 'http://localhost:3000',
-    API_BASE_URL: process.env.API_BASE_URL || 'http://localhost:5000',
+    API_BASE_URL: process.env.API_BASE_URL || 'http://localhost:5001',
 
     // ── Security ──────────────────────────────────────────────────────────────
     BCRYPT_ROUNDS: parseInt(process.env.BCRYPT_ROUNDS, 10) || 12,
